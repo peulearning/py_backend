@@ -14,7 +14,7 @@ def read_root():
     return {'message': 'Olá Mundo!'}
 
 
-@app.post('/users/', status_code=HTTPStatus.CREATED, response_model=UserPublic)
+@app.post('/users/', status_code=HTTPStatus.CREATED, response_model=UserDB)
 def create_user(user: UserSchema):
     user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)
 
